@@ -10,6 +10,7 @@ namespace BigBangAssessment.Auth
         {
 
         }
+        public DbSet<RegisterUser> RegisterUser { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

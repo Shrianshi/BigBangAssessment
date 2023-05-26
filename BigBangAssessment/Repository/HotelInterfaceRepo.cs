@@ -20,6 +20,13 @@ namespace BigBangAssessment.Repository
         Rooms AddRooms(Rooms r);
         Rooms UpdateRooms(Rooms r, int id);
         Rooms DeleteRooms(int id);
-        
+
+
+        //Crud function on Bookings table
+        IEnumerable<Bookings> GetBook();
+        Bookings GetBookings(int id);
+        Bookings AddBookings(Bookings r);
+        Bookings UpdateBookings(Bookings r, int id);
+        Bookings DeleteBookings(int id);
     }
 }

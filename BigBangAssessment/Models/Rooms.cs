@@ -14,6 +14,7 @@ namespace BigBangAssessment.Models
 
         [ForeignKey("HotelId")]
         public Hotel? Hotel { get; set; }
+        public ICollection<Bookings> Bookings { get; set; }
 
     }
 }

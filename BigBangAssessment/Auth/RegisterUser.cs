@@ -4,6 +4,8 @@ namespace BigBangAssessment.Auth
 {
     public class RegisterUser
     {
+        [Key]
+        public int Id { get; set; }
         [Required(ErrorMessage = "User Name is required")]
         public string? Username { get; set; }
 
@@ -13,5 +15,8 @@ namespace BigBangAssessment.Auth
 
         [Required(ErrorMessage = "Password is required")]
         public string? Password { get; set; }
+
+        [Required(ErrorMessage = "Role is required")]
+        public string? Role { get; set; }
     }
 }

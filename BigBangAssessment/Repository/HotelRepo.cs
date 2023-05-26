@@ -46,13 +46,6 @@ namespace BigBangAssessment.Repository
             return hotel;
         }
 
-        public Rooms AddRooms(Rooms r)
-        {
-            _contextDb.Rooms.Add(r);
-            _contextDb.SaveChanges();
-            return (r);
-        }
-
         public IEnumerable<Hotel> GetRoomsHotel()
         {
             var hotels = _contextDb.Hotel.ToList();
@@ -84,7 +77,13 @@ namespace BigBangAssessment.Repository
             return rooms;
         }
 
-       
+        public Rooms AddRooms(Rooms r)
+        {
+            _contextDb.Rooms.Add(r);
+            _contextDb.SaveChanges();
+            return (r);
+        }
+
 
         public IEnumerable<Rooms> GetHotelRooms()
         {
@@ -117,5 +116,52 @@ namespace BigBangAssessment.Repository
             return (r);
 
         }
+
+        //CRUD ON BOOKINGS TABLE
+        public Bookings DeleteBookings(int id)
+        {
+            var book = _contextDb.Bookings.Find(id);
+            _contextDb.Bookings.Remove(book);
+            _contextDb.SaveChanges();
+            return book;
+        }
+
+
+        public IEnumerable<Bookings> GetBook()
+        {
+            var book = _contextDb.Bookings.ToList();
+
+
+            return book;
+        }
+
+        public Bookings GetBookings(int id)
+        {
+            var book = _contextDb.Bookings.Find(id);
+            return book;
+        }
+
+
+        public Bookings UpdateBookings(Bookings b, int id)
+        {
+            var book = _contextDb.Bookings.Find(id);
+            if (book != null)
+            {
+                _contextDb.Update(book);
+                _contextDb.SaveChanges();
+            }
+            return (b);
+
+        }
+        public Bookings AddBookings(Bookings b)
+        {
+            _contextDb.Bookings.Add(b);
+            _contextDb.SaveChanges();
+            return (b);
+        }
     }
 }
+
+    
+
+
